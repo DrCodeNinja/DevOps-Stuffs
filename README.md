@@ -28,7 +28,7 @@ yum search git
 ```
 yum list installed | grep git
 ```
-
+---
 ## (02) About [ls -ld command]
 
 ### What it does
