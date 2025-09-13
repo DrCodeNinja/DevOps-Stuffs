@@ -4,8 +4,8 @@ yum stands for Yellowdog Updater, Modified. It’s a package manager used in RHE
 
 ### What it does
 
-*Installs, updates, and removes software packages.
+* Installs, updates, and removes software packages.
 
-*Automatically resolves and installs dependencies (other software libraries/packages required).
+* Automatically resolves and installs dependencies (other software libraries/packages required).
 
-*Works with repositories (remote or local servers that store RPM packages).
+* Works with repositories (remote or local servers that store RPM packages).
