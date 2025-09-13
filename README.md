@@ -65,3 +65,143 @@ drwxr-xr-x 3 root root 4096 Sep 13 10:25 /usr/src/kodekloudrepos
 * **4096** → Directory entry size in bytes.  
 * **Sep 13 10:25** → Last modification timestamp.  
 * **/usr/src/kodekloudrepos** → Directory name.  
+---
+## (03)🐧 Linux User Management 🔹 1. Types of Users in Linux
+
+1.  **Root user**
+    
+    *   Superuser with full privileges.
+        
+    *   Username: root
+        
+    *   UID: 0
+        
+2.  **System users**
+    
+    *   Created during installation or by services (e.g., daemon, www-data, mysql).
+        
+    *   Usually **non-interactive** (no shell).
+        
+3.  **Normal users**
+    
+    *   Created by admins for real people or tasks.
+        
+    *   UID usually starts from 1000 (varies by distro).
+        
+
+🔹 2. Files that control users
+
+*   /etc/passwd → stores user account information (username, UID, GID, shell, home dir).
+    
+*   /etc/shadow → stores **hashed passwords** and account expiration info.
+    
+*   /etc/group → stores group details.
+    
+*   /etc/sudoers → controls sudo access (use visudo to edit).
+    
+
+🔹 3. Creating Users
+
+### Basic user creation
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   sudo useradd username   `
+
+### Create user with home directory
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   sudo useradd -m username   `
+
+### Set user’s shell
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   sudo useradd -m -s /bin/bash username   `
+
+### Create user with non-interactive shell
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   sudo useradd -m -s /sbin/nologin username   `
+
+### Add user with comment (full name)
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   sudo useradd -m -c "Dasun Perera" dasun   `
+
+🔹 4. Setting Passwords
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   sudo passwd username   `
+
+Check password aging policy:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   chage -l username   `
+
+🔹 5. Managing Groups
+---------------------
+
+*   sudo groupadd developers
+    
+*   sudo usermod -aG developers username
+    
+*   sudo usermod -g developers username
+    
+*   groups usernameid username
+    
+
+🔹 6. Modifying Users
+---------------------
+
+*   sudo usermod -s /bin/zsh username
+    
+*   sudo usermod -d /new/home/dir username
+    
+*   sudo usermod -L username
+    
+*   sudo usermod -U username
+    
+
+🔹 7. Deleting Users
+--------------------
+
+*   sudo userdel username
+    
+*   sudo userdel -r username
+    
+
+🔹 8. Switching Users
+---------------------
+
+*   su - username
+    
+*   sudo -u username command
+    
+
+🔹 9. Sudo Access
+-----------------
+
+Add user to sudo (Debian/Ubuntu) or wheel (RHEL/CentOS):
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   sudo usermod -aG sudo username   # Ubuntu/Debian  sudo usermod -aG wheel username  # CentOS/RHEL   `
+
+Edit sudoers file safely:
+
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   sudo visudo   `
+
+🔹 10. User Info Commands
+-------------------------
+
+*   cat /etc/passwd
+    
+*   whoami
+    
+*   whow
+    
+*   id username
+    
+
+🔹 11. Security & Best Practices
+--------------------------------
+
+*   Disable root SSH login (/etc/ssh/sshd\_config).
+    
+*   Use **non-interactive shells** for service users.
+    
+*   Use **groups** instead of giving many users root.
+    
+*   Regularly check /etc/passwd and /etc/shadow for anomalies.
+    
+*   sudo usermod -e 2025-12-31 username
