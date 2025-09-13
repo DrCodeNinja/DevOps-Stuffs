@@ -63,8 +63,10 @@ drwxr-xr-x 3 root root 4096 Sep 13 10:25 /usr/src/kodekloudrepos
 * **root root** → Owner (`root`) and group (`root`).  
 * **4096** → Directory entry size in bytes.  
 * **Sep 13 10:25** → Last modification timestamp.  
-* **/usr/src/kodekloudrepos** → Directory name.  
+* **/usr/src/kodekloudrepos** → Directory name.
+
 ============================================================================================
+
 ## (03)🐧 Linux User Management -- Complete Guide
 
 🔹 1. Types of Users in Linux
